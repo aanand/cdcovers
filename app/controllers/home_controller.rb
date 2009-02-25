@@ -21,7 +21,7 @@ class HomeController < ApplicationController
 
     @album_title_words = @quote.downcase.scan(regex).collect { |m| m.first }[-5..-1]
     @first_word        = @album_title_words.first
-    @all_words         = @album_title_words.join(" ").sub(/\.$/, '')
+    @all_words         = @album_title_words.join(" ")
 
     @image_link     = @flickr.search("td.Photo a")[3]
     @image_page_url = @image_link.get_attribute("href")
