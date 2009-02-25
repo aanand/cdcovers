@@ -1,0 +1,14 @@
+!!!
+
+- yui_css_url = "http://yui.yahooapis.com/combo?3.0.0pr2/build/cssfonts/fonts-min.css&3.0.0pr2/build/cssreset/reset-min.css&3.0.0pr2/build/cssbase/base-min.css"
+
+%html
+  %head
+    %title Hilarious Random CD Cover Meme
+    %link{ :rel=>"stylesheet", :type=>"text/css", :href=>yui_css_url }
+    = stylesheet_link_tag 'base'
+
+  %body
+    #wrapper= yield
+    = render :partial => '/google_analytics'
+

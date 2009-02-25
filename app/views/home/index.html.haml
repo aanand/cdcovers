@@ -1,0 +1,15 @@
+%a.album-cover{ :href=>"http://www.flickr.com#{h(@image_page_url)}", :title => 'You can click here to get a bigger version.', :target => '_blank' }
+  %img{ :src => h(@image_url) }
+
+%p.band-name= link_to h(@band_name), @wikipedia_url
+
+%p.album-title
+  %abbr{ :title => "The full quote is &ldquo;#{h(@quote)}&rdquo; and was spoken by #{h(@author)}. The word &ldquo;#{h(@first_word)}&rdquo; is optional." }= h(@all_words)
+
+%p.notes
+  %span.refresh-message
+    = link_to 'Refresh', :action => :index
+    for another.
+  %span.what-is-this= link_to 'What is this?', :action => :rules
+  %span.who-am-i= link_to 'Who am I?', 'http://www.aanandprasad.com/'
+

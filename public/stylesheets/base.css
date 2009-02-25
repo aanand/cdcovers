@@ -1,0 +1,63 @@
+html, body {
+    background: #3a333a;
+}
+
+html, body, a {
+    color: #aabbaa;
+}
+
+body {
+    text-align: center;
+}
+
+p {
+    margin: 20px 0;
+}
+
+#wrapper {
+    margin-top: 100px;
+}
+
+.band-name {
+    font-size: 40px;
+}
+
+.band-name a {
+    text-decoration: none;
+}
+
+.band-name a:hover {
+    text-decoration: underline;
+}
+
+.album-title {
+    font-size: 20px;
+}
+
+.album-title abbr {
+    border-bottom: 1px dotted #aabbaa;
+}
+
+.notes, .notes a {
+    color: #556055;
+}
+
+.notes a:hover {
+    color: #aabbaa;
+}    
+
+.notes span {
+    padding: 0 4px;
+}
+
+.rules {
+    width: 500px;
+    margin: auto;
+    text-align: left;
+    font-size: 14px;
+}
+
+.rules .back {
+    text-align: right;
+}
+
