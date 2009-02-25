@@ -10,7 +10,7 @@ class HomeController < ApplicationController
     @quotations = Hpricot(open("http://www.quotationspage.com/random.php3"))
     @flickr     = Hpricot(open("http://www.flickr.com/explore/interesting/7days"))
 
-    @band_name = @wikipedia.search("title").inner_text.sub(/ - [^-]*$/, '').sub(/\([^\)]+\)$/, '')
+    @band_name = @wikipedia.search("title").inner_text.sub(/ - [^-]*$/, '').sub(/\([^\)]+\)$/, '').titleize
     @wikipedia_url = @wikipedia_response.base_uri.to_s
 
     run = "[^ \\-.,;:!?'\"]+"
@@ -21,11 +21,14 @@ class HomeController < ApplicationController
 
     @album_title_words = @quote.downcase.scan(regex).collect { |m| m.first }[-5..-1]
     @first_word        = @album_title_words.first
-    @all_words         = @album_title_words.join(" ")
+    @all_words         = @album_title_words.join(" ").titleize
 
     @image_link     = @flickr.search("td.Photo a")[3]
-    @image_page_url = @image_link.get_attribute("href")
+
+    @image_page_url = "http://www.flickr.com" + @image_link.get_attribute("href")
+
     @image_url      = @image_link.search("img").first.get_attribute("src")
+    @big_image_url  = Hpricot(open(@image_page_url)).search(".photoImgDiv img:first").first.get_attribute("src")
   end
 end
 

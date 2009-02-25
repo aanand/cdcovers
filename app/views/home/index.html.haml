@@ -1,10 +1,18 @@
-%a.album-cover{ :href=>"http://www.flickr.com#{h(@image_page_url)}", :title => 'You can click here to get a bigger version.', :target => '_blank' }
-  %img{ :src => h(@image_url) }
+%p.album-cover
+  %a{ :href=>h(@image_page_url), :title => 'You can click here to get a bigger version.', :target => '_blank' }
+    %img{ :src => h(@image_url) }
 
-%p.band-name= link_to h(@band_name), @wikipedia_url
+%p
+  = link_to h(@band_name), @wikipedia_url, :target => '_blank', :class => 'band-name'
 
-%p.album-title
-  %abbr{ :title => "The full quote is &ldquo;#{h(@quote)}&rdquo; and was spoken by #{h(@author)}. The word &ldquo;#{h(@first_word)}&rdquo; is optional." }= h(@all_words)
+  = '-'
+
+  %abbr.album-title{ :title => "The full quote is &ldquo;#{h(@quote)}&rdquo; and was spoken by #{h(@author)}. The word &ldquo;#{h(@first_word)}&rdquo; is optional." }
+    = h(@all_words)
+
+%p.do-it
+  Now,
+  %b= link_to('make an album cover', "http://www.pixlr.com/editor/?image=#{@big_image_url}", :target => '_blank') + '.'
 
 %p.notes
   %span.refresh-message
