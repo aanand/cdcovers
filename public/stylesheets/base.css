@@ -18,6 +18,14 @@ p {
     margin-top: 100px;
 }
 
+.album-cover img {
+    border: 4px solid #3a333a;
+}
+
+.album-cover:hover img {
+    border-color: #aabbaa;
+}
+
 .band-name {
     font-size: 40px;
 }
